@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Checkout • MediStock Pro{% endblock %}
+{% block content %}
+<h1 class="h3 mb-3">Checkout</h1>
+<div class="row g-4">
+  <div class="col-md-7">
+    <div class="card p-3">
+      <h2 class="h5">Order summary</h2>
+      <ul class="list-group list-group-flush">
+        {% for item in cart.items.all %}
+          <li class="list-group-item d-flex justify-content-between">
+            <span>{{ item.product.name }} x{{ item.quantity }}</span>
+            <span>£{{ item.line_total_gbp }}</span>
+          </li>
+        {% endfor %}
+          <li class="list-group-item d-flex justify-content-between fw-semibold">
+            <span>Total</span>
+            <span>£{{ cart.total_gbp }}</span>
+          </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="card p-3">
+      <h2 class="h5">Delivery location</h2>
+      <form method="post">
+        {% csrf_token %}
+        <select name="location" class="form-select mb-3" required>
+          {% for loc in locations %}
+            <option value="{{ loc.id }}">{{ loc.name }}</option>
+          {% endfor %}
+        </select>
+        <button class="btn btn-primary w-100" type="submit">Pay with Stripe (test)</button>
+        <div class="small text-muted mt-2">Stripe keys are read from environment variables.</div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-6">
+    <h1 class="h4">Log movement</h1>
+    <p class="text-muted mb-3">{{ stock_item.product.name }} — {{ stock_item.location.name }} (On-hand: <strong>{{ stock_item.qty_on_hand }}</strong>)</p>
+
+    <form method="post" class="card">
+      <div class="card-body">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <div class="mb-3">
+          {{ form.movement_type.label_tag }}
+          {{ form.movement_type }}
+          <div class="text-danger small">{{ form.movement_type.errors }}</div>
+        </div>
+        <div class="mb-3">
+          {{ form.quantity.label_tag }}
+          {{ form.quantity }}
+          <div class="text-danger small">{{ form.quantity.errors }}</div>
+        </div>
+        <div class="mb-3">
+          {{ form.reason.label_tag }}
+          {{ form.reason }}
+          <div class="text-danger small">{{ form.reason.errors }}</div>
+          <div class="form-text">For adjustments, add a reason (e.g., stock count correction).</div>
+        </div>
+      </div>
+      <div class="card-footer d-flex gap-2">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a class="btn btn-outline-secondary" href="{% url 'inventory:dashboard' %}?location={{ stock_item.location.id }}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

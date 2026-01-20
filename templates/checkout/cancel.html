@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-8">
+    <h1 class="h3">Payment cancelled</h1>
+    <p class="text-muted">No worries — nothing has been charged. You can try again whenever you're ready.</p>
+
+    <div class="d-flex gap-2">
+      <a class="btn btn-primary" href="{% url 'checkout:start_checkout' %}">Try checkout again</a>
+      <a class="btn btn-outline-secondary" href="{% url 'cart:cart_detail' %}">Back to cart</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

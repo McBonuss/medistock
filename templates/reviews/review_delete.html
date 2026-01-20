@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-6">
+    <h1 class="h4">Delete review</h1>
+    <p class="text-muted">Are you sure you want to delete your review for <strong>{{ review.product.name }}</strong>?</p>
+
+    <form method="post" class="card">
+      <div class="card-body">
+        {% csrf_token %}
+        <p class="mb-0">Rating: <strong>{{ review.rating }}/5</strong></p>
+        <p class="text-muted mb-0">{{ review.comment }}</p>
+      </div>
+      <div class="card-footer d-flex gap-2">
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a class="btn btn-outline-secondary" href="{% url 'catalog:product_detail' review.product.pk %}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

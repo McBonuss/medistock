@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"path": "accounts"
+		},
+		{
+			"path": "cart"
+		},
+		{
+			"path": "catalog"
+		},
+		{
+			"path": "checkout"
+		},
+		{
+			"path": "config"
+		},
+		{
+			"path": "inventory"
+		},
+		{
+			"path": "reviews"
+		},
+		{
+			"path": "static"
+		},
+		{
+			"path": "templates"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"powershell.cwd": "accounts"
+	}
+}

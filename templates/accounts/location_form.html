@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{{ mode }} location • MediStock Pro{% endblock %}
+{% block content %}
+<h1 class="h3 mb-3">{{ mode }} location</h1>
+<form method="post" class="card p-3" novalidate>
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <div class="mb-3">
+    <label class="form-label" for="id_name">Name</label>
+    {{ form.name }}
+    <div class="text-danger small">{{ form.name.errors }}</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="id_address_line1">Address line 1</label>
+    {{ form.address_line1 }}
+    <div class="text-danger small">{{ form.address_line1.errors }}</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="id_city">City</label>
+    {{ form.city }}
+    <div class="text-danger small">{{ form.city.errors }}</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="id_postcode">Postcode</label>
+    {{ form.postcode }}
+    <div class="text-danger small">{{ form.postcode.errors }}</div>
+  </div>
+  <button class="btn btn-primary" type="submit">Save</button>
+</form>
+{% endblock %}

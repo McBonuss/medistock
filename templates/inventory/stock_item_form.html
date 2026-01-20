@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-6">
+    <h1 class="h4">Track a product for {{ location.name }}</h1>
+    <p class="text-muted">Choose a product, set an initial on-hand quantity, and a reorder threshold.</p>
+
+    <form method="post" class="card">
+      <div class="card-body">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="mb-3">
+          {{ form.product.label_tag }}
+          {{ form.product }}
+          <div class="text-danger small">{{ form.product.errors }}</div>
+        </div>
+        <div class="mb-3">
+          {{ form.qty_on_hand.label_tag }}
+          {{ form.qty_on_hand }}
+          <div class="text-danger small">{{ form.qty_on_hand.errors }}</div>
+        </div>
+        <div class="mb-3">
+          {{ form.reorder_threshold.label_tag }}
+          {{ form.reorder_threshold }}
+          <div class="text-danger small">{{ form.reorder_threshold.errors }}</div>
+        </div>
+      </div>
+      <div class="card-footer d-flex gap-2">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a class="btn btn-outline-secondary" href="{% url 'inventory:dashboard' %}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

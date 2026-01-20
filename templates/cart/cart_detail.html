@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Cart • MediStock Pro{% endblock %}
+{% block content %}
+<h1 class="h3 mb-3">Your cart</h1>
+{% if cart.items.count %}
+  <div class="table-responsive">
+  <table class="table table-sm align-middle">
+    <thead><tr><th>Product</th><th style="width:160px">Qty</th><th class="text-end">Line total</th><th></th></tr></thead>
+    <tbody>
+      {% for item in cart.items.all %}
+      <tr>
+        <td>
+          <div class="fw-semibold">{{ item.product.name }}</div>
+          <div class="small text-muted">{{ item.product.sku }}</div>
+        </td>
+        <td>
+          <form method="post" action="{% url 'cart:update_item' item.pk %}" class="d-flex gap-2">
+            {% csrf_token %}
+            <input type="number" min="1" max="999" name="quantity" value="{{ item.quantity }}" class="form-control form-control-sm">
+            <button class="btn btn-sm btn-outline-primary" type="submit">Update</button>
+          </form>
+        </td>
+        <td class="text-end">£{{ item.line_total_gbp }}</td>
+        <td class="text-end">
+          <form method="post" action="{% url 'cart:remove_item' item.pk %}">
+            {% csrf_token %}
+            <button class="btn btn-sm btn-outline-danger" type="submit">Remove</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="fw-semibold">Total: £{{ cart.total_gbp }}</div>
+    <a class="btn btn-primary" href="{% url 'checkout:start_checkout' %}">Checkout</a>
+  </div>
+{% else %}
+  <div class="alert alert-info">Your cart is empty.</div>
+{% endif %}
+{% endblock %}

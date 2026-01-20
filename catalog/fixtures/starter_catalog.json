@@ -1,0 +1,170 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {"name": "PPE & Gloves", "slug": "ppe-gloves"}
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {"name": "Dressings & Wound Care", "slug": "dressings-wound-care"}
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {"name": "Syringes & Needles", "slug": "syringes-needles"}
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {"name": "Disinfection & Cleaning", "slug": "disinfection-cleaning"}
+  },
+
+  {
+    "model": "catalog.product",
+    "pk": 101,
+    "fields": {
+      "category": 1,
+      "name": "Nitrile Examination Gloves (Box of 100)",
+      "sku": "PPE-GLV-NIT-100",
+      "description": "Powder-free nitrile exam gloves. Suitable for general clinical use.",
+      "price_gbp": "6.99",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 102,
+    "fields": {
+      "category": 1,
+      "name": "Disposable Aprons (Pack of 100)",
+      "sku": "PPE-APR-100",
+      "description": "Lightweight disposable aprons for infection control.",
+      "price_gbp": "9.49",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 103,
+    "fields": {
+      "category": 1,
+      "name": "Surgical Face Masks Type IIR (Box of 50)",
+      "sku": "PPE-MSK-IIR-50",
+      "description": "Fluid resistant masks for clinical environments.",
+      "price_gbp": "5.99",
+      "is_active": true
+    }
+  },
+
+  {
+    "model": "catalog.product",
+    "pk": 201,
+    "fields": {
+      "category": 2,
+      "name": "Sterile Gauze Swabs 10x10cm (Pack of 100)",
+      "sku": "WND-GAU-10X10-100",
+      "description": "Sterile gauze swabs for wound cleaning and dressing.",
+      "price_gbp": "8.25",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 202,
+    "fields": {
+      "category": 2,
+      "name": "Adhesive Dressing 6x7cm (Pack of 50)",
+      "sku": "WND-ADH-6X7-50",
+      "description": "Breathable adhesive dressings for minor wounds.",
+      "price_gbp": "7.75",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 203,
+    "fields": {
+      "category": 2,
+      "name": "Cohesive Bandage 5cm (Roll)",
+      "sku": "WND-BND-COH-5CM",
+      "description": "Self-adhering cohesive bandage roll.",
+      "price_gbp": "2.60",
+      "is_active": true
+    }
+  },
+
+  {
+    "model": "catalog.product",
+    "pk": 301,
+    "fields": {
+      "category": 3,
+      "name": "Syringe 5ml Luer Lock (Pack of 100)",
+      "sku": "SYN-SYR-5ML-LL-100",
+      "description": "Single-use 5ml syringes with luer lock fitting.",
+      "price_gbp": "12.95",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 302,
+    "fields": {
+      "category": 3,
+      "name": "Needles 21G (Box of 100)",
+      "sku": "SYN-NDL-21G-100",
+      "description": "Single-use hypodermic needles, 21G.",
+      "price_gbp": "6.50",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 303,
+    "fields": {
+      "category": 3,
+      "name": "Alcohol Swabs (Box of 200)",
+      "sku": "SYN-SWB-ALC-200",
+      "description": "70% isopropyl alcohol swabs for skin preparation.",
+      "price_gbp": "3.95",
+      "is_active": true
+    }
+  },
+
+  {
+    "model": "catalog.product",
+    "pk": 401,
+    "fields": {
+      "category": 4,
+      "name": "Hand Sanitiser Gel 500ml",
+      "sku": "CLN-HSG-500",
+      "description": "Alcohol-based hand sanitiser gel for routine use.",
+      "price_gbp": "3.49",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 402,
+    "fields": {
+      "category": 4,
+      "name": "Disinfectant Surface Wipes (Tub of 200)",
+      "sku": "CLN-WIP-200",
+      "description": "Ready-to-use disinfectant wipes for hard surfaces.",
+      "price_gbp": "11.50",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 403,
+    "fields": {
+      "category": 4,
+      "name": "Clinical Waste Bags 30L (Pack of 50)",
+      "sku": "CLN-WST-30L-50",
+      "description": "Heavy-duty waste bags suitable for clinical environments.",
+      "price_gbp": "7.20",
+      "is_active": true
+    }
+  }
+]

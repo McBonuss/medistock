@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-8">
+    <h1 class="h4">{{ mode }} review</h1>
+    <p class="text-muted">{{ product.name }}</p>
+
+    <form method="post" class="card">
+      <div class="card-body">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="mb-3">
+          {{ form.rating.label_tag }}
+          {{ form.rating }}
+          <div class="text-danger small">{{ form.rating.errors }}</div>
+        </div>
+        <div class="mb-3">
+          {{ form.comment.label_tag }}
+          {{ form.comment }}
+          <div class="text-danger small">{{ form.comment.errors }}</div>
+        </div>
+      </div>
+      <div class="card-footer d-flex gap-2">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a class="btn btn-outline-secondary" href="{% url 'catalog:product_detail' product.pk %}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
