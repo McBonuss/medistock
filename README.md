@@ -78,6 +78,11 @@ If you do not load the fixture, you can create Categories and Products manually 
 
 - Success: `4242 4242 4242 4242` (any future expiry, any CVC)
 
+## Test login credentials
+
+- Admin email: Admin@nhs.net
+- Password: not set (create via `createsuperuser`)
+
 ## How the "payment unlock" works
 
 After Stripe Checkout returns with a paid session, the app:
