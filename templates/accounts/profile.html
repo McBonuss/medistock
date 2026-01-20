@@ -7,6 +7,15 @@
   <p class="mb-1"><strong>Organisation:</strong> {{ user.profile.organisation|default:'Not set' }}</p>
   <p class="mb-1"><strong>Role:</strong> {{ user.profile.get_role_display }}</p>
   <p class="mb-3"><strong>Inventory access:</strong> {% if user.profile.paid_access %}Unlocked{% else %}Locked (checkout required){% endif %}</p>
+  {% if org_form %}
+    <hr>
+    <h2 class="h6">Set up your organisation</h2>
+    <form method="post" class="mb-3">
+      {% csrf_token %}
+      {{ org_form.as_p }}
+      <button class="btn btn-primary" type="submit">Save organisation</button>
+    </form>
+  {% endif %}
   <div class="d-flex gap-2">
     <a class="btn btn-outline-primary" href="{% url 'accounts:location_list' %}">Manage locations</a>
     <a class="btn btn-primary" href="{% url 'catalog:product_list' %}">Go to shop</a>

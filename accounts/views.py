@@ -3,7 +3,7 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
-from .forms import RegisterForm, LocationForm
+from .forms import RegisterForm, LocationForm, OrganisationSetupForm
 from .models import Location
 
 def register_view(request):
@@ -20,7 +20,15 @@ def register_view(request):
 
 @login_required
 def profile_view(request):
-    return render(request, 'accounts/profile.html')
+    profile = request.user.profile
+    form = OrganisationSetupForm() if not profile.organisation else None
+    if request.method == 'POST' and not profile.organisation:
+        form = OrganisationSetupForm(request.POST)
+        if form.is_valid():
+            form.save(request.user)
+            messages.success(request, 'Organisation linked. You can now manage locations and checkout.')
+            return redirect('accounts:profile')
+    return render(request, 'accounts/profile.html', {'org_form': form})
 
 @login_required
 def location_list(request):

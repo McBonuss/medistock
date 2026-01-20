@@ -56,3 +56,22 @@ class LocationForm(forms.ModelForm):
         if value and len(value) < 3:
             raise forms.ValidationError('Postcode seems too short.')
         return value
+
+
+class OrganisationSetupForm(forms.Form):
+    organisation_name = forms.CharField(
+        max_length=120,
+        required=True,
+        help_text='Create or join an organisation',
+        widget=forms.TextInput(attrs=BOOTSTRAP_INPUT),
+    )
+
+    def save(self, user):
+        org_name = self.cleaned_data['organisation_name']
+        org, _ = Organisation.objects.get_or_create(name=org_name)
+        profile = user.profile
+        profile.organisation = org
+        profile.role = profile.ROLE_ORG_ADMIN
+        profile.save()
+        Location.objects.get_or_create(organisation=org, name='Main Location')
+        return org
