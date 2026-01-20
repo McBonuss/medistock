@@ -12,6 +12,25 @@ from .models import Order, OrderLineItem
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
+def _finalize_order(order, user):
+    cart = get_or_create_cart(user)
+    for item in cart.items.select_related('product'):
+        OrderLineItem.objects.create(
+            order=order,
+            product=item.product,
+            quantity=item.quantity,
+            line_total_gbp=item.line_total_gbp,
+        )
+    order.status = Order.STATUS_PAID
+    order.save()
+
+    profile = user.profile
+    profile.paid_access = True
+    profile.save()
+
+    cart.items.all().delete()
+
 @login_required
 def start_checkout(request):
     cart = get_or_create_cart(request.user)
@@ -36,6 +55,11 @@ def start_checkout(request):
             return redirect('checkout:start_checkout')
 
         order = Order.objects.create(user=request.user, location=location, total_gbp=cart.total_gbp)
+
+        if settings.MOCK_STRIPE_SUCCESS:
+            _finalize_order(order, request.user)
+            messages.success(request, 'Payment simulated for demo. Inventory dashboard unlocked!')
+            return render(request, 'checkout/success.html', {'order': order})
 
         line_items = []
         for item in cart.items.select_related('product'):
@@ -88,25 +112,7 @@ def success(request):
     order = get_object_or_404(Order, id=order_id, user=request.user)
 
     if session.payment_status == 'paid' and order.status != Order.STATUS_PAID:
-        cart = get_or_create_cart(request.user)
-        # Persist line items snapshot
-        for item in cart.items.select_related('product'):
-            OrderLineItem.objects.create(
-                order=order,
-                product=item.product,
-                quantity=item.quantity,
-                line_total_gbp=item.line_total_gbp,
-            )
-        order.status = Order.STATUS_PAID
-        order.save()
-
-        # Unlock inventory dashboard for this user
-        profile = request.user.profile
-        profile.paid_access = True
-        profile.save()
-
-        # Clear cart
-        cart.items.all().delete()
+        _finalize_order(order, request.user)
 
         messages.success(request, 'Payment successful. Inventory dashboard unlocked!')
 

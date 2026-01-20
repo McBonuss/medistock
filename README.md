@@ -78,6 +78,10 @@ If you do not load the fixture, you can create Categories and Products manually 
 
 - Success: `4242 4242 4242 4242` (any future expiry, any CVC)
 
+### Demo mode (no Stripe keys)
+
+Set `MOCK_STRIPE_SUCCESS=True` to simulate a successful checkout without calling Stripe.
+
 ## Test login credentials
 
 - Admin email: Admin@nhs.net
