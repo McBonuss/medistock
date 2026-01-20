@@ -19,6 +19,11 @@
     "pk": 4,
     "fields": {"name": "Disinfection & Cleaning", "slug": "disinfection-cleaning"}
   },
+  {
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {"name": "Diagnostics & Test Kits", "slug": "diagnostics-test-kits"}
+  },
 
   {
     "model": "catalog.product",
@@ -53,6 +58,42 @@
       "sku": "PPE-MSK-IIR-50",
       "description": "Fluid resistant masks for clinical environments.",
       "price_gbp": "5.99",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 104,
+    "fields": {
+      "category": 1,
+      "name": "Latex-Free Vinyl Gloves (Box of 100)",
+      "sku": "PPE-GLV-VIN-100",
+      "description": "Latex-free vinyl gloves for low-risk procedures.",
+      "price_gbp": "5.25",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 105,
+    "fields": {
+      "category": 1,
+      "name": "Protective Shoe Covers (Pack of 100)",
+      "sku": "PPE-SHO-100",
+      "description": "Disposable shoe covers for clinical cleanliness.",
+      "price_gbp": "8.40",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 106,
+    "fields": {
+      "category": 1,
+      "name": "Disposable Hair Nets (Pack of 100)",
+      "sku": "PPE-HRN-100",
+      "description": "Disposable hair nets for hygiene compliance.",
+      "price_gbp": "4.75",
       "is_active": true
     }
   },
@@ -93,6 +134,42 @@
       "is_active": true
     }
   },
+  {
+    "model": "catalog.product",
+    "pk": 204,
+    "fields": {
+      "category": 2,
+      "name": "Hydrocolloid Dressings 10x10cm (Pack of 10)",
+      "sku": "WND-HYD-10X10-10",
+      "description": "Occlusive dressings for moist wound healing.",
+      "price_gbp": "14.90",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 205,
+    "fields": {
+      "category": 2,
+      "name": "Non-Adherent Pads 5x5cm (Pack of 50)",
+      "sku": "WND-NAP-5X5-50",
+      "description": "Non-adherent pads to reduce trauma on removal.",
+      "price_gbp": "6.80",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 206,
+    "fields": {
+      "category": 2,
+      "name": "Elastic Crepe Bandage 7.5cm (Roll)",
+      "sku": "WND-CRP-7.5CM",
+      "description": "Supportive elastic crepe bandage roll.",
+      "price_gbp": "3.20",
+      "is_active": true
+    }
+  },
 
   {
     "model": "catalog.product",
@@ -130,6 +207,42 @@
       "is_active": true
     }
   },
+  {
+    "model": "catalog.product",
+    "pk": 304,
+    "fields": {
+      "category": 3,
+      "name": "Syringe 10ml Luer Slip (Pack of 100)",
+      "sku": "SYN-SYR-10ML-LS-100",
+      "description": "Single-use 10ml syringes with luer slip fitting.",
+      "price_gbp": "13.50",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 305,
+    "fields": {
+      "category": 3,
+      "name": "Insulin Syringes 1ml (Pack of 100)",
+      "sku": "SYN-SYR-1ML-INS-100",
+      "description": "1ml insulin syringes with fine gauge needles.",
+      "price_gbp": "15.20",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 306,
+    "fields": {
+      "category": 3,
+      "name": "Safety Lancets 28G (Box of 200)",
+      "sku": "SYN-LNC-28G-200",
+      "description": "Single-use safety lancets for blood sampling.",
+      "price_gbp": "9.90",
+      "is_active": true
+    }
+  },
 
   {
     "model": "catalog.product",
@@ -164,6 +277,114 @@
       "sku": "CLN-WST-30L-50",
       "description": "Heavy-duty waste bags suitable for clinical environments.",
       "price_gbp": "7.20",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 404,
+    "fields": {
+      "category": 4,
+      "name": "Surface Disinfectant Spray 750ml",
+      "sku": "CLN-SPR-750",
+      "description": "Multi-surface disinfectant spray for routine cleaning.",
+      "price_gbp": "4.60",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 405,
+    "fields": {
+      "category": 4,
+      "name": "Chlorine Tablets (Pack of 100)",
+      "sku": "CLN-CHL-100",
+      "description": "Chlorine tablets for prepared disinfectant solutions.",
+      "price_gbp": "10.30",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 406,
+    "fields": {
+      "category": 4,
+      "name": "Disposable Mop Heads (Pack of 10)",
+      "sku": "CLN-MOP-10",
+      "description": "Single-use mop heads for infection control.",
+      "price_gbp": "8.10",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 501,
+    "fields": {
+      "category": 5,
+      "name": "COVID-19 Antigen Test Kit (Box of 25)",
+      "sku": "DIA-AGT-C19-25",
+      "description": "Rapid antigen test kits for point-of-care screening.",
+      "price_gbp": "24.90",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 502,
+    "fields": {
+      "category": 5,
+      "name": "Pregnancy Test Strips (Box of 50)",
+      "sku": "DIA-PRG-50",
+      "description": "Urine pregnancy test strips for rapid screening.",
+      "price_gbp": "12.40",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 503,
+    "fields": {
+      "category": 5,
+      "name": "Blood Glucose Test Strips (Box of 50)",
+      "sku": "DIA-GLU-50",
+      "description": "Glucose test strips compatible with common meters.",
+      "price_gbp": "16.75",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 504,
+    "fields": {
+      "category": 5,
+      "name": "Urinalysis Reagent Strips (Pack of 100)",
+      "sku": "DIA-URI-100",
+      "description": "Multi-parameter urine test strips for screening.",
+      "price_gbp": "18.20",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 505,
+    "fields": {
+      "category": 5,
+      "name": "CRP Rapid Test (Box of 10)",
+      "sku": "DIA-CRP-10",
+      "description": "C-reactive protein rapid tests for infection screening.",
+      "price_gbp": "29.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 506,
+    "fields": {
+      "category": 5,
+      "name": "HIV 1/2 Rapid Test (Box of 25)",
+      "sku": "DIA-HIV-25",
+      "description": "Rapid HIV screening test kits for clinical settings.",
+      "price_gbp": "32.50",
       "is_active": true
     }
   }
