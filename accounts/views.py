@@ -24,7 +24,11 @@ def profile_view(request):
 
 @login_required
 def location_list(request):
-    org = request.user.profile.organisation
+    profile = request.user.profile
+    if profile.role != profile.ROLE_ORG_ADMIN:
+        messages.error(request, 'Only organisation admins can manage locations.')
+        return redirect('accounts:profile')
+    org = profile.organisation
     locations = org.locations.all() if org else []
     return render(request, 'accounts/location_list.html', {'locations': locations})
 
