@@ -32,6 +32,10 @@
 		}
 	],
 	"settings": {
-		"powershell.cwd": "accounts"
+		"powershell.cwd": "accounts",
+		"python.defaultInterpreterPath": "accounts/.venv/Scripts/python.exe",
+		"python.analysis.extraPaths": [
+			"."
+		]
 	}
 }
