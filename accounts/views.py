@@ -7,6 +7,8 @@ from .forms import RegisterForm, LocationForm, OrganisationSetupForm
 from .models import Location
 
 def register_view(request):
+    if request.user.is_authenticated:
+        return redirect('catalog:product_list')
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
