@@ -7,6 +7,19 @@ from catalog.models import Product
 from .models import CartItem
 from .utils import get_or_create_cart
 
+
+def _parse_quantity(raw_value, default=1):
+    try:
+        fallback = int(default)
+    except (TypeError, ValueError):
+        fallback = 1
+
+    try:
+        return int(raw_value)
+    except (TypeError, ValueError):
+        return fallback
+
+
 @login_required
 def cart_detail(request):
     cart = get_or_create_cart(request.user)
@@ -16,7 +29,7 @@ def cart_detail(request):
 def add_to_cart(request, product_pk):
     product = get_object_or_404(Product, pk=product_pk, is_active=True)
     cart = get_or_create_cart(request.user)
-    qty = int(request.POST.get('quantity', 1) or 1)
+    qty = _parse_quantity(request.POST.get('quantity', 1), default=1)
     qty = max(1, min(qty, 999))
     item, created = CartItem.objects.get_or_create(cart=cart, product=product)
     if created:
@@ -31,7 +44,7 @@ def add_to_cart(request, product_pk):
 def update_item(request, item_pk):
     cart = get_or_create_cart(request.user)
     item = get_object_or_404(CartItem, pk=item_pk, cart=cart)
-    qty = int(request.POST.get('quantity', item.quantity) or item.quantity)
+    qty = _parse_quantity(request.POST.get('quantity', item.quantity), default=item.quantity)
     qty = max(1, min(qty, 999))
     item.quantity = qty
     item.save()
