@@ -10,9 +10,14 @@ from .utils import get_or_create_cart
 
 def _parse_quantity(raw_value, default=1):
     try:
+        fallback = int(default)
+    except (TypeError, ValueError):
+        fallback = 1
+
+    try:
         return int(raw_value)
     except (TypeError, ValueError):
-        return default
+        return fallback
 
 
 @login_required
