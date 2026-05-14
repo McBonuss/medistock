@@ -97,6 +97,44 @@ After Stripe Checkout returns with a paid session, the app:
 
 The Inventory Dashboard requires `paid_access`.
 
+## What's New (recent changes)
+
+- Improved inventory UX: live low-stock filter and per-location stock insights.
+- Added server-side validations to stock movements (prevent negative on-hand and over-consumption).
+- UI polish for product listing and inventory table; clearer low-stock alerts.
+- Added product design mockups to help with future UI iterations (see images below).
+
+## Design Mockups
+
+The repository includes several SVG mockups demonstrating product, cart, and inventory screens across device sizes. Open the SVG files in a browser or include them in documentation.
+
+Quick previews (click or open these files):
+
+- Product card + location stock example: static/images/product_design_1.svg
+- Low-stock + product details mockup: static/images/product_design_2.svg
+
+Device-specific product list:
+
+![Product list — desktop](static/images/mockups/product_list_desktop.svg)
+
+![Product list — tablet](static/images/mockups/product_list_tablet.svg)
+
+![Product list — mobile](static/images/mockups/product_list_mobile.svg)
+
+Product detail (desktop):
+
+![Product detail — desktop](static/images/mockups/product_detail_desktop.svg)
+
+Cart (mobile):
+
+![Cart — mobile](static/images/mockups/cart_mobile.svg)
+
+Inventory dashboard (tablet):
+
+![Inventory dashboard — tablet](static/images/mockups/inventory_dashboard_tablet.svg)
+
+For more context and design notes see `docs/design_notes.md` and the visual index `docs/visuals.md`.
+
 ## Deployment (Heroku)
 
 1. Set config vars in Heroku:

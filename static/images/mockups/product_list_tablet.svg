@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="100%" height="100%" fill="#fbfbfd"/>
+  <text x="30" y="48" font-family="Arial" font-size="20" fill="#0f172a">Product List — Tablet</text>
+  <rect x="30" y="70" width="840" height="56" rx="6" fill="#fff" stroke="#e6eef8"/>
+  <g transform="translate(30,140)">
+    <!-- two columns -->
+    <g transform="translate(0,0)">
+      <rect width="420" height="220" rx="8" fill="#fff" stroke="#e6eef8"/>
+      <rect x="18" y="18" width="384" height="140" rx="6" fill="#f8fafc"/>
+      <text x="210" y="185" font-family="Arial" font-size="15" fill="#0b1220" text-anchor="middle">MedPack 250 · 250pcs</text>
+    </g>
+    <g transform="translate(440,0)">
+      <rect width="420" height="220" rx="8" fill="#fff" stroke="#e6eef8"/>
+      <rect x="18" y="18" width="384" height="140" rx="6" fill="#fff7ed"/>
+      <text x="210" y="185" font-family="Arial" font-size="15" fill="#0b1220" text-anchor="middle">Syringes 10ml · Low</text>
+    </g>
+  </g>
+</svg>

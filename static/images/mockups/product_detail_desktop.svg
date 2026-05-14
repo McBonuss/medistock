@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="100%" height="100%" fill="#f8fafc"/>
+  <text x="40" y="60" font-family="Arial" font-size="22" fill="#0f172a">Product Detail — Desktop</text>
+  <g transform="translate(40,100)">
+    <rect width="520" height="460" rx="8" fill="#fff" stroke="#e6eef8"/>
+    <rect x="30" y="30" width="460" height="360" rx="6" fill="#fff7ed"/>
+    <rect x="600" y="0" width="520" height="220" rx="8" fill="#fff" stroke="#e6eef8"/>
+    <text x="860" y="40" font-family="Arial" font-size="18" fill="#0b1220" text-anchor="middle">MedPack 250</text>
+    <text x="860" y="70" font-family="Arial" font-size="14" fill="#475569" text-anchor="middle">Sterile gloves · Box of 250</text>
+    <rect x="720" y="150" width="220" height="38" rx="6" fill="#4f46e5"/>
+    <text x="830" y="178" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle">Add to Cart</text>
+    <rect x="600" y="240" width="520" height="140" rx="8" fill="#f1f5f9" stroke="#e6eef8"/>
+    <text x="860" y="320" font-family="Arial" font-size="14" fill="#0b1220" text-anchor="middle">Stock: Ward 1:120 · Ward 2:40 · Clinic A:200</text>
+  </g>
+</svg>
