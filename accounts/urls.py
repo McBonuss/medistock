@@ -15,7 +15,7 @@ urlpatterns = [
         ),
         name='login',
     ),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='catalog:product_list'), name='logout'),
     path('profile/', views.profile_view, name='profile'),
     path('locations/', views.location_list, name='location_list'),
     path('locations/new/', views.location_create, name='location_create'),
