@@ -2,6 +2,7 @@
   "venvPath": "accounts",
   "venv": ".venv",
   "extraPaths": [
-    "."
+    ".",
+    "e:/GameDev/WebDev Full Stack/medistock"
   ]
 }

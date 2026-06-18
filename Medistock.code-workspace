@@ -35,7 +35,8 @@
 		"powershell.cwd": "accounts",
 		"python.defaultInterpreterPath": "accounts/.venv/Scripts/python.exe",
 		"python.analysis.extraPaths": [
-			"."
+			".",
+			"e:/GameDev/WebDev Full Stack/medistock"
 		]
 	}
 }
