@@ -81,6 +81,7 @@ If you do not load the fixture, you can create Categories and Products manually 
 ### Demo mode (no Stripe keys)
 
 Set `MOCK_STRIPE_SUCCESS=True` to simulate a successful checkout without calling Stripe.
+This bypass only works when `DEBUG=True`; Heroku/production should keep `DEBUG=False` so Stripe Checkout is always used.
 
 ## Test login credentials
 
@@ -144,6 +145,7 @@ For more context and design notes see `docs/design_notes.md` and the visual inde
 - `ALLOWED_HOSTS` = your Heroku app domain
 - `DATABASE_URL` (Heroku Postgres)
 - `STRIPE_PUBLIC_KEY`, `STRIPE_SECRET_KEY`
+- `MOCK_STRIPE_SUCCESS` should be omitted or set to `False`
 
 2. Push to Heroku and run migrations:
 

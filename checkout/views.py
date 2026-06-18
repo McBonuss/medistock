@@ -13,6 +13,10 @@ from .models import Order, OrderLineItem
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
+def _use_mock_stripe():
+    return settings.DEBUG and settings.MOCK_STRIPE_SUCCESS
+
+
 def _finalize_order(order, user):
     cart = get_or_create_cart(user)
     for item in cart.items.select_related('product'):
@@ -56,7 +60,7 @@ def start_checkout(request):
 
         order = Order.objects.create(user=request.user, location=location, total_gbp=cart.total_gbp)
 
-        if settings.MOCK_STRIPE_SUCCESS:
+        if _use_mock_stripe():
             _finalize_order(order, request.user)
             messages.success(request, 'Payment simulated for demo. Inventory dashboard unlocked!')
             return render(request, 'checkout/success.html', {'order': order})

@@ -108,6 +108,7 @@ LOGOUT_REDIRECT_URL = "catalog:product_list"
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY", "")
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
+# Demo checkout bypass is only honored in DEBUG mode.
 MOCK_STRIPE_SUCCESS = os.getenv("MOCK_STRIPE_SUCCESS", "False").lower() == "true"
 
 # Basic security hardening for production
