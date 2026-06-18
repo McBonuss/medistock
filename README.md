@@ -145,7 +145,6 @@ For more context and design notes see `docs/design_notes.md` and the visual inde
 - `ALLOWED_HOSTS` = your Heroku app domain
 - `DATABASE_URL` (Heroku Postgres)
 - `STRIPE_PUBLIC_KEY`, `STRIPE_SECRET_KEY`
-- `MOCK_STRIPE_SUCCESS` should be omitted or set to `False`
 
 2. Push to Heroku and run migrations:
 
